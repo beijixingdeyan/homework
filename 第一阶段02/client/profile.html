@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>社交平台 - 个人主页</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">社交平台</div>
+            <ul class="nav-links">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="publish.html">发布</a></li>
+                <li><a href="profile.html" class="active">个人主页</a></li>
+            </ul>
+            <div class="user-actions">
+                <button id="logout-btn" class="logout-btn">退出登录</button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="profile-container">
+        <div class="profile-header">
+            <div class="profile-banner">
+                <img src="assets/images/default-banner.jpg" alt="个人横幅" class="banner-img">
+            </div>
+            <div class="profile-info">
+                <img src="assets/images/default-avatar.jpg" alt="用户头像" class="profile-avatar">
+                <div class="profile-details">
+                    <h2 class="profile-name">用户名</h2>
+                    <p class="profile-bio">该用户很神秘，什么也没有留下</p>
+                    <div class="profile-stats">
+                        <span>动态: <span id="post-count">0</span></span>
+                        <span>关注者: <span id="follower-count">0</span></span>
+                        <span>关注: <span id="following-count">0</span></span>
+                    </div>
+                    <div class="profile-actions">
+                        <button id="edit-profile-btn" class="edit-profile-btn">编辑个人资料</button>
+                        <button id="follow-btn" class="follow-btn" style="display: none;">关注</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="profile-content">
+            <div class="profile-nav">
+                <button class="profile-tab active" data-tab="posts">动态</button>
+                <button class="profile-tab" data-tab="photos">喜欢</button>
+                <button class="profile-tab" data-tab="about">评论</button>
+            </div>
+
+            <div class="user-posts">
+                <!-- 用户发布的动态将通过JavaScript渲染 -->
+            </div>
+        </div>
+    </main>
+
+    <!-- 编辑个人资料的悬浮窗 -->
+    <div id="edit-profile-modal" class="floating-modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>编辑个人资料</h2>
+            <form id="edit-profile-form">
+                <div class="form-group">
+                    <label for="edit-name">昵称</label>
+                    <input type="text" id="edit-name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="edit-bio">个人简介</label>
+                    <textarea id="edit-bio" name="bio"></textarea>
+                </div>
+                <div class="form-group file-upload">
+                    <label for="edit-avatar">头像</label>
+                    <input type="file" id="edit-avatar" name="avatar" accept="image/*">
+                    <div class="preview-container">
+                        <!-- 图片预览将在这里显示 -->
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="submit-btn">保存</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 社交平台. 保留所有权利.</p>
+    </footer>
+
+    <script src="scripts/api.js"></script>
+    <script src="scripts/profile.js"></script>
+</body>
+</html>
